@@ -1,2 +1,2 @@
-# lubyaska.github.io
+# lulie.github.io
 personal website

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lubyaska Lietamenta - Creative Designer & Developer Portfolio. Explore my work in UI/UX design, web development, and digital art.">
+    <meta name="keywords" content="portfolio, designer, developer, UI/UX, web design, creative, jakarta">
+    <meta name="author" content="Lubyaska Lietamenta">
+    <meta name="theme-color" content="#b70020">
+    <meta property="og:title" content="Lubyaska Lietamenta - Portfolio">
+    <meta property="og:description" content="Creative Designer & Developer - Explore my work in UI/UX design and web development">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lubyaska.com">
+    <link rel="icon" type="image/png" href="assets/lulielogo.png">
+    
+    <title>Lubyaska Lietamenta - Portfolio</title>
+    <link rel="stylesheet" href="styles-goth.css">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/vanger">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <svg class="hero-arc-text" viewBox="0 0 1200 400" aria-hidden="true">
+                <defs>
+                    <path id="arcPath" d="M100,320 C400,40 800,40 1100,320" />
+                </defs>
+                <text textLength="950">
+                    <textPath href="#arcPath" startOffset="5%">Lubyaska Lietamenta</textPath>
+                </text>
+            </svg>
+            <div class="hero-figure">
+                <img src="assets/lubyaska-cutout.png" alt="Lubyaska Lietamenta" class="hero-cutout">
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation (sticky after scroll) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-text">Lulie</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">about</a></li>
+                <li><a href="#experiences" class="nav-link">experiences</a></li>
+                <li><a href="#projects" class="nav-link">projects</a></li>
+                <li><a href="#achievements" class="nav-link">achievement</a></li>
+                <li><a href="#skills" class="nav-link">skills</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-header">
+                <h2 class="section-title">Henlo, I'm</h2>
+                <h3 class="section-subtitle">Lubyaska Lietamenta</h3>
+            </div>
+            <div class="about-wrapper">
+                <div class="about-image">
+                    <div class="image-container-round">
+                        <img src="assets/lubyaboutme.jpg" alt="Lubyaska" class="about-img">
+                    </div>
+                </div>
+                <div class="about-content">
+                    <p class="about-text">
+                        Hi! I'm Maria Lubyaska Lietamenta Purwa — but you can call me <strong>Luby</strong>. I'm someone who's always curious and excited to explore new things. I have a strong passion for learning and constantly push myself to deliver the best in everything I do.
+                    </p>
+                    <p class="about-text">
+                        I thrive in dynamic environments and love taking on fresh challenges to keep things interesting. With a unique sense of style and taste, I bring a personal touch to everything I create. As an ENTP-T and a Gemini, I'm naturally flexible, adaptable, and full of energy — always ready to think outside the box and embrace change.
+                    </p>
+                </div>
+            </div>
+            <div class="about-passions">
+                <h4 class="passion-title">What I'm Passionate About</h4>
+                <div class="passion-grid">
+                    <div class="passion-item">
+                        <div class="passion-icon">🎨</div>
+                        <h5>Soulful Arts</h5>
+                        <p>From brush strokes to body movements, I love exploring the many forms of creative expression.</p>
+                    </div>
+                    <div class="passion-item">
+                        <div class="passion-icon">🎵</div>
+                        <h5>Music & Rhythm</h5>
+                        <p>Music is where I go to recharge and reconnect</p>
+                    </div>
+                    <div class="passion-item">
+                        <div class="passion-icon">🎬</div>
+                        <h5>Creative Media Design</h5>
+                        <p>I find joy in turning ideas into visuals—whether in flat colors or full 3D depth.</p>
+                    </div>
+                    <div class="passion-item">
+                        <div class="passion-icon">👗</div>
+                        <h5>Fashion as Art</h5>
+                        <p>Styling is my way of storytelling—through textures, tones, and a touch of boldness.</p>
+                    </div>
+                    <div class="passion-item">
+                        <div class="passion-icon">📺</div>
+                        <h5>Stories on Screen</h5>
+                        <p>I love diving into stories that inspire, entertain, or simply make me feel something new.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section id="experiences" class="experiences">
+        <div class="container">
+            <h2 class="section-title">My Journey</h2>
+            <h3 class="section-subtitle">Experiences</h3>
+            
+            <div class="exp-toggle">
+                <button class="exp-tab exp-btn active" data-tab="education">Education</button>
+                <button class="exp-tab exp-btn" data-tab="work">Work</button>
+            </div>
+
+            <div class="timeline-section">
+                <!-- Education Timeline - Vertical -->
+                <div id="education" class="exp-content active">
+                    <div class="timeline timeline-education">
+                        <div class="timeline-item">
+                            <span class="timeline-badge">2023 - current</span>
+                            <div class="timeline-content">
+                                <h4>Electronic Engineering Polytechnic Institute of Surabaya (EEPIS)</h4>
+                                <p class="degree">Bachelor's Degree</p>
+                                <p class="major">Multimedia Engineering Technology</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-badge">2020 - 2023</span>
+                            <div class="timeline-content">
+                                <h4>Vocational School 6 Surakarta</h4>
+                                <p class="major">Multimedia</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-badge">2017 - 2020</span>
+                            <div class="timeline-content">
+                                <h4>Pangudi Luhur Bintang Laut Junior High School Surakarta</h4>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-badge">2011 - 2017</span>
+                            <div class="timeline-content">
+                                <h4>Pangudi Luhur St.Timotius Primary School Surakarta</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work Timeline - Horizontal -->
+                <div id="work" class="exp-content">
+                    <div class="timeline timeline-work">
+                        <div class="timeline-item work-item work-blinkids">
+                            <div class="work-marker"></div>
+                            <div class="timeline-content">
+                                <span class="date">March 2023 – Jan 2025</span>
+                                <h4>BlinKids</h4>
+                                <p class="major">Seamless Pattern Graphic Designer</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item work-item">
+                            <div class="work-marker"></div>
+                            <div class="timeline-content">
+                                <span class="date">July – Sept 2022</span>
+                                <h4>Mata Visual Digital Printing & Advertising</h4>
+                                <p class="major">Graphic Design Intern</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item work-item work-mavis">
+                            <div class="work-marker"></div>
+                            <div class="timeline-content">
+                                <span class="date">March – May 2022</span>
+                                <h4>MAVIS Apparel & Merchandise</h4>
+                                <p class="major">Graphic Designer & Administrative Assistant Intern</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item work-item">
+                            <div class="work-marker"></div>
+                            <div class="timeline-content">
+                                <span class="date">February 2022</span>
+                                <h4>Blackforest Wedding Studio</h4>
+                                <p class="major">Photography Assistant & Administrative Assistant Intern</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <h3 class="section-subtitle-dark">I've Created</h3>
+            <div class="project-filter">
+                <button class="project-filter-btn active" data-category="all">All</button>
+                <button class="project-filter-btn" data-category="Immersive Tech & AI">Immersive Tech & AI</button>
+                <button class="project-filter-btn" data-category="Web & App Development">Web & App Development</button>
+                <button class="project-filter-btn" data-category="Visual Art, Branding & Assets">Visual Art, Branding & Assets</button>
+            </div>
+
+            <div id="projectGrid" class="project-grid" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="project-modal" aria-hidden="true" role="dialog" aria-label="Project details">
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog">
+            <button class="modal-close" aria-label="Close project detail">&times;</button>
+            <div class="modal-media">
+                <button class="gallery-nav gallery-prev" aria-label="Previous image">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="modal-image-frame">
+                    <img src="" alt="Project preview" class="modal-image">
+                </div>
+                <button class="gallery-nav gallery-next" aria-label="Next image">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <div class="modal-body project-modal-body">
+                <div class="project-modal-head">
+                    <p class="project-modal-category"></p>
+                    <h3 class="project-modal-title"></h3>
+                    <p class="project-modal-subtitle"></p>
+                </div>
+                <p class="overview-text"></p>
+                <div class="detail-text"></div>
+                <div class="modal-meta">
+                    <p class="tech-text"></p>
+                    <a class="project-link" href="#" target="_blank" rel="noopener">Visit project</a>
+                </div>
+                <div class="gallery-dots" aria-label="Gallery navigation dots"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Milestones</h2>
+            <h3 class="section-subtitle">Achievements</h3>
+
+            <div class="achievements-carousel">
+                <div class="achievement-item" data-title="Latihan Keterampilan Manajemen Mahasiswa" data-subtitle="Participant - 2023">
+                    <img src="assets/certificate/lkmmptd.png" alt="LKMM Pra-TD PENS 2023">
+                    <div class="achievement-overlay">
+                        <div class="overlay-content">
+                            <h4>Certificate</h4>
+                            <p class="cert-title">Latihan Keterampilan Manajemen Mahasiswa</p>
+                            <p class="cert-subtitle">Participant - 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="achievement-item" data-title="3D Photography Competition Immersive Fiesta 2024" data-subtitle="Event Divison - 2024">
+                    <img src="assets/certificate/if2024.png" alt="Immersive Fiesta 2024">
+                    <div class="achievement-overlay">
+                        <div class="overlay-content">
+                            <h4>Certificate</h4>
+                            <p class="cert-title">3D Photography Competition Immersive Fiesta 2024</p>
+                            <p class="cert-subtitle">Event Divison - 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="achievement-item" data-title="TRM EXPO 2024: Future Creation" data-subtitle="Event Division - 2024">
+                    <img src="assets/certificate/expo24.png" alt="TRM EXPO 2024">
+                    <div class="achievement-overlay">
+                        <div class="overlay-content">
+                            <h4>Certificate</h4>
+                            <p class="cert-title">TRM EXPO 2024: Future Creation</p>
+                            <p class="cert-subtitle">Event Division - 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="achievement-item" data-title="Mata Visual Intern" data-subtitle="Graphic Designer - 2022">
+                    <img src="assets/certificate/pkl1.png" alt="Mata Visual Internship">
+                    <div class="achievement-overlay">
+                        <div class="overlay-content">
+                            <h4>Certificate</h4>
+                            <p class="cert-title">Mata Visual Intern</p>
+                            <p class="cert-subtitle">Graphic Designer - 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="achievement-item" data-title="Mata Visual & MAVIS Intern" data-subtitle="Graphic Designer - 2022">
+                    <img src="assets/certificate/pkl2.png" alt="Mata Visual & MAVIS Internship">
+                    <div class="achievement-overlay">
+                        <div class="overlay-content">
+                            <h4>Certificate</h4>
+                            <p class="cert-title">Mata Visual & MAVIS Intern</p>
+                            <p class="cert-subtitle">Graphic Designer - 2022</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="certificate-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body">
+                <img src="" alt="Certificate" class="modal-image">
+                <div class="modal-details">
+                    <h3>Certificate</h3>
+                    <p class="modal-title"></p>
+                    <p class="modal-subtitle"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills &</h2>
+            <h3 class="section-subtitle">Capabilities</h3>
+
+            <div class="skill-filter-tabs">
+                <button class="filter-btn active" data-filter="all">All Skills</button>
+                <button class="filter-btn" data-filter="hardskill">Hard Skills</button>
+                <button class="filter-btn" data-filter="softskill">Soft Skills</button>
+                <button class="filter-btn" data-filter="language">Languages</button>
+            </div>
+
+            <div class="skills-grid">
+                    <div class="skill-card active" data-category="hardskill">
+                    <div class="skill-icon"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"> </div>
+                    <div class="skill-label">HTML</div>
+                </div>
+                    <div class="skill-card" data-category="hardskill">
+                    <div class="skill-icon"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"> </div>
+                    <div class="skill-label">CSS</div>
+                </div>
+                    <div class="skill-card" data-category="hardskill">
+                    <div class="skill-icon"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"> </div>
+                    <div class="skill-label">JavaScript</div>
+                </div>
+                    <div class="skill-card" data-category="hardskill">
+                    <div class="skill-icon"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"> </div>
+                    <div class="skill-label">React</div>
+                </div>
+                    <div class="skill-card" data-category="hardskill">
+                    <div class="skill-icon"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"> </div>
+                    <div class="skill-label">Node.js</div>
+                </div>
+                    <div class="skill-card" data-category="hardskill">
+                    <div class="skill-icon"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"> </div>
+                    <div class="skill-label">Python</div>
+                </div>
+                    <div class="skill-card" data-category="hardskill">
+                        <div class="skill-icon"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"> </div>
+                        <div class="skill-label">Figma</div>
+                    </div>
+                    <div class="skill-card" data-category="hardskill">
+                        <div class="skill-icon"> <img src="assets/ailogo.png" alt="Adobe Illustrator"> </div>
+                        <div class="skill-label">Adobe Illustrator</div>
+                    </div>
+                    <div class="skill-card" data-category="hardskill">
+                        <div class="skill-icon"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" alt="Blender"> </div>
+                        <div class="skill-label">Blender</div>
+                    </div>
+                    <div class="skill-card" data-category="hardskill">
+                        <div class="skill-icon"> <img src="assets/coreldraw.png" alt="Corel Draw"> </div>
+                        <div class="skill-label">Corel Draw</div>
+                    </div>
+                    <div class="skill-card" data-category="hardskill">
+                        <div class="skill-icon"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity"> </div>
+                        <div class="skill-label">Unity</div>
+                    </div>
+                    <div class="skill-card" data-category="softskill">
+                        <div class="skill-icon"><span aria-hidden="true" style="font-size:2.2rem">🧠</span></div>
+                        <div class="skill-label">Critical Thinking</div>
+                    </div>
+                    <div class="skill-card" data-category="softskill">
+                        <div class="skill-icon"><span aria-hidden="true" style="font-size:2.2rem">🤝</span></div>
+                        <div class="skill-label">Collaboration</div>
+                    </div>
+                    <div class="skill-card" data-category="softskill">
+                        <div class="skill-icon"><span aria-hidden="true" style="font-size:2.2rem">🗣️</span></div>
+                        <div class="skill-label">Communication</div>
+                    </div>
+                    <div class="skill-card" data-category="language">
+                        <div class="skill-icon"><img src="https://flagcdn.com/w80/id.png" alt="Indonesia Flag" class="flag-icon"></div>
+                        <div class="skill-label">Bahasa Indonesia</div>
+                    </div>
+                    <div class="skill-card" data-category="language">
+                        <div class="skill-icon"><img src="https://flagcdn.com/w80/us.png" alt="USA Flag" class="flag-icon"></div>
+                        <div class="skill-label">English</div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Get in touch</h2>
+                    <p>I'm very approachable and would love to speak to you. Feel free to call, send me an email or follow me on social media.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+62-813-2626-0388</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>lubyaska.lietamenta@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://instagram.com/lubyaskxyz" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/0895335945877" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://github.com/lubyaska" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <h3>Send me a message</h3>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-send">Send message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-name">Lulie</p>
+            <div class="footer-socials">
+                <a href="https://instagram.com/lubyaskxyz" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/0895335945877" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://github.com/lubyaska" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <p class="footer-year">&copy; 2025 Lubyaska Lietamenta. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

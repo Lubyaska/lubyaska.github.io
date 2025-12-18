@@ -4,14 +4,43 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section[id]');
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
     const navbar = document.querySelector('.navbar');
     const hero = document.querySelector('.hero');
+    const modeToggle = document.querySelector('.mode-toggle');
 
-    // Hamburger menu toggle (safe for null)
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            const isOpen = navMenu.style.display === 'flex';
-            navMenu.style.display = isOpen ? 'none' : 'flex';
+    // Hamburger menu toggle -> fullscreen overlay
+    function setMenuOpen(open) {
+        document.body.classList.toggle('menu-open', open);
+        if (hamburger) hamburger.setAttribute('aria-expanded', String(open));
+        if (mobileMenu) mobileMenu.setAttribute('aria-hidden', String(!open));
+    }
+    if (hamburger) {
+        const toggleMenu = () => setMenuOpen(!document.body.classList.contains('menu-open'));
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
+        });
+    }
+
+    // Mobile overlay: explicit close button and backdrop click
+    if (mobileMenuClose) {
+        const closeMenu = () => setMenuOpen(false);
+        mobileMenuClose.addEventListener('click', closeMenu);
+        mobileMenuClose.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                closeMenu();
+            }
+        });
+    }
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) setMenuOpen(false);
         });
     }
 
@@ -52,23 +81,35 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' });
-                // Close only on mobile; keep desktop nav visible
-                if (navMenu && window.innerWidth <= 900) {
-                    navMenu.style.display = 'none';
-                }
+                // Close overlay menu on mobile
+                if (window.innerWidth <= 1024) setMenuOpen(false);
             }
         });
     });
 
     // Ensure nav menu resets on resize (desktop)
     window.addEventListener('resize', () => {
-        if (navMenu) {
-            if (window.innerWidth > 900) {
-                navMenu.style.display = 'flex';
-            } else if (navMenu.style.display === '') {
-                navMenu.style.display = 'none';
-            }
-        }
+        // Always close overlay state when resizing to desktop
+        if (window.innerWidth > 1024) setMenuOpen(false);
+    });
+
+    // Aurora Glow toggle (vivid <-> muted) with persistence
+    // (Aurora glow toggle removed by request)
+
+    // Theme mode (dark/light) toggle with persistence
+    const THEME_KEY = 'themeMode';
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    if (savedTheme === 'light') {
+        document.body.classList.add('theme-light');
+        const iconInit = modeToggle?.querySelector('i');
+        if (iconInit) iconInit.className = 'fas fa-moon';
+    }
+    modeToggle?.addEventListener('click', () => {
+        const isLight = document.body.classList.toggle('theme-light');
+        localStorage.setItem(THEME_KEY, isLight ? 'light' : 'dark');
+        // Update icon
+        const icon = modeToggle.querySelector('i');
+        if (icon) icon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
     });
 
     // Tab switching for experiences
@@ -89,33 +130,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form submission
+    // Form submission with Formspree + validation
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        const status = document.createElement('div');
+        status.className = 'form-status';
+        status.style.marginTop = '0.5rem';
+        contactForm.appendChild(status);
+        const showStatus = (text, ok = true) => {
+            status.textContent = text;
+            status.style.color = ok ? '#a6f4c5' : '#ff8aa1';
+        };
+        const validateEmail = (v) => /[^\s@]+@[^\s@]+\.[^\s@]+/.test(v);
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Get form values
-            const name = this.querySelector('input[placeholder="Your Name"]').value;
-            const email = this.querySelector('input[placeholder="Your Email"]').value;
-            const subject = this.querySelector('input[placeholder="Subject"]').value;
-            const message = this.querySelector('textarea').value;
-            
-            // Simple validation
-            if (name && email && subject && message) {
-                // Show success message
-                alert('Thank you for your message! I will get back to you soon.');
-                this.reset();
-                
-                // In production, you would send this data to a server
-                console.log({
-                    name,
-                    email,
-                    subject,
-                    message
-                });
-            } else {
-                alert('Please fill in all fields.');
+            const form = e.currentTarget;
+            const fd = new FormData(form);
+            const name = (fd.get('name')||'').toString().trim();
+            const email = (fd.get('email')||'').toString().trim();
+            const message = (fd.get('message')||'').toString().trim();
+            if (!validateEmail(email)) { showStatus('Please enter a valid email.', false); return; }
+            if (!message) { showStatus('Message cannot be empty.', false); return; }
+            try {
+                showStatus('Sending...');
+                const res = await fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
+                if (res.ok) {
+                    showStatus('Thanks! Your message has been sent.');
+                    form.reset();
+                } else {
+                    showStatus('Failed to send. Try again later.', false);
+                }
+            } catch(err) {
+                showStatus('Network error. Please try again.', false);
             }
         });
     }
@@ -126,20 +172,57 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -100px 0px'
     };
 
+    // Scroll reveal with fade-up + stagger
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('is-visible');
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.passion-item, .timeline-item, .project-card, .skill-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(el);
+    const revealGroups = [
+        { container: '.passion-grid', selector: '.passion-item' },
+        { container: '.skills-grid', selector: '.skill-card' },
+        { container: '.timeline-education', selector: '.timeline-item' },
+        { container: '.timeline-work', selector: '.timeline-item' },
+        { container: '#projectGrid', selector: '.project-card' }
+    ];
+
+    function setupReveal(containerSel, childSel, step = 80) {
+        const container = document.querySelector(containerSel);
+        if (!container) return;
+        const items = Array.from(container.querySelectorAll(childSel));
+        items.forEach((el, i) => {
+            el.classList.add('fade-up');
+            el.style.transitionDelay = `${i * step}ms`;
+            observer.observe(el);
+        });
+    }
+
+    revealGroups.forEach(g => setupReveal(g.container, g.selector));
+
+    // Per-section aurora intensity mapping
+    const sectionIds = ['home','about','experiences','projects','achievements','skills','contact'];
+    const bodyClassPrefix = 'aurora-';
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                if (!id) return;
+                // Remove previous aurora-* class
+                document.body.className = document.body.className
+                    .split(' ')
+                    .filter(c => !c.startsWith(bodyClassPrefix))
+                    .join(' ');
+                document.body.classList.add(`${bodyClassPrefix}${id}`);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    sectionIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) sectionObserver.observe(el);
     });
 
     // Skill filters
@@ -645,7 +728,7 @@ document.addEventListener('DOMContentLoaded', function() {
         projectGrid.innerHTML = '';
         const filtered = projectsData.filter(project => filterCategory === 'all' || project.category === filterCategory);
 
-        filtered.forEach(project => {
+        filtered.forEach((project, idx) => {
             const card = document.createElement('article');
             card.className = 'project-card';
             card.setAttribute('data-category', project.category);
@@ -709,9 +792,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // Animate on scroll
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            card.classList.add('fade-up');
+            card.style.transitionDelay = `${idx * 80}ms`;
             observer.observe(card);
 
             projectGrid.appendChild(card);

@@ -472,7 +472,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'assets/projects/maviscomproapp/8.jpeg',
                 'assets/projects/maviscomproapp/9.jpeg'
             ],
-            link: '',
+            link: 'https://drive.google.com/file/d/1YM2Eq6oVSDGhcSzWWnEtPEaQPRSKZal4/view?usp=sharing',
             tech: 'Smart Apps Creator - Mobile UX'
         },
         {

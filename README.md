@@ -1,52 +1,46 @@
-# 🎨 Lubyaska Lietamenta - Personal Portfolio Website
+# 🎨 Lubyaska Lietamenta - Portfolio
 
-Portfolio website yang indah dan artsy untuk Lubyaska Lietamenta, dengan dark theme, vector graphics, dan design yang ekspresif.
+A stunning, dark-themed portfolio showcasing creative design & development work with an interactive cinema-style modal for project details.
 
-## ✨ Fitur Utama
+## ✨ Key Features
 
-- **Responsive Design**: Fully responsive untuk semua device (desktop, tablet, mobile)
-- **Dark Theme**: Tema gelap dengan aksen merah maroon yang artistic
-- **Modern UI/UX**: Design clean dengan smooth animations dan transitions
-- **Sections**:
-  - 🏠 Hero Landing Page
-  - 👤 About Section dengan passion grid
-  - 📚 Experiences dengan timeline education & work
-  - 🎨 Projects showcase dengan grid layout
-  - 🏆 Achievements carousel
-  - 💻 Skills dengan progress bars & languages
-  - 📧 Contact form
-  - 📱 Footer dengan social links
+- **Dark Polaroid Card Grid** - Split-card design with fixed-height images and dark backgrounds
+- **Cinema Modal** - Full-width vertical layout with 70vh image showcase and whole-page scroll
+- **Sticky Close Button** - X button remains visible while scrolling through project details
+- **No Image Cropping** - Images display with `object-fit: contain` to show full artwork
+- **Responsive Design** - Optimized for desktop, tablet, and mobile
+- **Smooth Interactions** - Hover effects, transitions, and overlay navigation arrows
+- **Language Flags** - Flag icons for Indonesia 🇮🇩 and USA 🇺🇸
 
-## 🎯 Design Highlights
+## 🎯 Sections
 
-- **Color Palette**: 
-  - Primary Dark: #160000
-  - Primary Maroon: #270000
-  - Accent Red: #b70020
-  - Gradien background yang menarik
+- **Hero** - Eye-catching landing with SVG text arc
+- **About** - Personal intro with passion highlights
+- **Projects** - Filtered grid: Immersive Tech, Web Dev, Visual Art
+- **Achievements** - Certificate carousel
+- **Skills** - Hard skills, soft skills, and languages
+- **Contact** - Email and social media links
 
-- **Typography**:
-  - Heading: Playfair Display (serif)
-  - Body: Poppins (sans-serif)
-
-- **Visual Elements**:
-  - Decorative SVG doodles dengan floating animation
-  - Smooth scroll behavior
-  - Parallax effects
-  - Hover interactions
-  - Glass-morphism cards
-
-## 📁 Project Structure
+## 📁 Structure
 
 ```
-PortofolioWebsite/
-├── index.html       # Main HTML file
-├── styles.css       # Complete CSS styling
-├── script.js        # JavaScript interactions
-└── README.md        # This file
+├── index.html          # Main HTML
+├── styles-goth.css     # Complete styling (dark theme)
+├── script.js           # Interactive features & project data
+├── assets/             # Images & certificates
+└── README.md           # This file
 ```
 
-## 🚀 Cara Menggunakan
+## 🌐 Live Demo
+
+Visit: **https://lubyaska.github.io**
+
+## 📝 Tech Stack
+
+- HTML5 & CSS3
+- Vanilla JavaScript
+- Responsive Grid & Flexbox
+- CSS Animations & Transitions
 
 ### Option 1: Open File Directly
 1. Buka file `index.html` dengan browser favorit
